@@ -1,15 +1,15 @@
-# NexusDesk - Sistema de chamados de TI
-# Versao 0.1: registro de um chamado no terminal
-#
-# Projeto de aprendizado desenvolvido passo a passo.
-# As funcionalidades abaixo ainda serao implementadas.
+# NexusDesk - Sistema de gerenciamento de chamados de TI
+# Versão 0.1 - Registro de chamados no terminal
 
 print("=== NEXUSDESK | SUPORTE DE TI ===")
 
-# MISSAO 001
-# 1. Solicite o nome da pessoa com input().
-# 2. Solicite uma descricao do problema com input().
-# 3. Solicite a prioridade (baixa, media ou alta) com input().
-# 4. Mostre um resumo das tres informacoes usando print().
-#
-# DICA: Comece criando uma variavel por informacao.
+# Entrada de dados
+nome = input("Nome do solicitante: ")
+problema = input("Descreva o problema: ")
+prioridade = input("Prioridade (baixa, média ou alta): ")
+
+# Saída de dados
+print("\n=== CHAMADO REGISTRADO ===")
+print("Solicitante:", nome)
+print("Problema:", problema)
+print("Prioridade:", prioridade)
