@@ -4,7 +4,7 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 
 ## Status
 
-**Versão 0.2 — cadastro de múltiplos chamados no terminal.**
+**Versão 0.3 — cadastro de múltiplos chamados com validação de dados no terminal.**
 
 ## Funcionalidades implementadas
 
@@ -14,8 +14,10 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 - Numeração sequencial dos chamados (1, 2, 3...).
 - Pergunta para registrar outro chamado ou encerrar o programa.
 - Aceita respostas como `sim`, `Sim` e `SIM` na pergunta de continuação.
+- Impede nomes e descrições vazios ou formados apenas por espaços, solicitando novamente.
+- Valida as prioridades `baixa`, `média`, `media` e `alta`, desconsiderando maiúsculas e espaços nas extremidades.
 
-**Limitações conhecidas:** os dados são mantidos somente durante a execução; não há histórico, banco de dados nem validação dos campos. A numeração recomeça em 1 ao reiniciar o programa. Respostas diferentes de `sim` encerram a execução.
+**Limitações conhecidas:** os chamados existem apenas durante a execução e não há histórico nem banco de dados. A numeração recomeça em 1 ao reiniciar o programa. Respostas diferentes de `sim` encerram a execução. As variantes `media` e `média` são aceitas, mas ainda não são padronizadas na saída.
 
 ## Como executar
 
@@ -70,10 +72,11 @@ NexusDesk encerrado.
 
 - [Issue #1 — Registrar chamado pelo terminal](https://github.com/devgw177/NexusDesk/issues/1): concluída na versão 0.1.
 - [Issue #2 — Registrar múltiplos chamados com identificadores sequenciais](https://github.com/devgw177/NexusDesk/issues/2): concluída na versão 0.2.
+- [Issue #3 — Validar dados dos chamados e opções de prioridade](https://github.com/devgw177/NexusDesk/issues/3): concluída na versão 0.3.
 
 ## Próximos passos planejados
 
-- Validar os campos de entrada e as opções de prioridade.
+- Padronizar prioridades e validar explicitamente a resposta de continuação.
 - Permitir consultar chamados registrados.
 - Persistir os registros em arquivo ou banco de dados.
 - Criar testes automatizados.
