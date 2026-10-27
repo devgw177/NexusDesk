@@ -4,7 +4,7 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 
 ## Status
 
-**Versão 0.3.1 — cadastro de múltiplos chamados com validação de dados e da resposta de continuação no terminal.**
+**Versão 0.3.2 — cadastro de múltiplos chamados com validação de dados, validação da continuação e padronização de prioridade.**
 
 ## Funcionalidades implementadas
 
@@ -16,9 +16,10 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 - Aceita respostas como `sim`, `Sim` e `SIM` na pergunta de continuação.
 - Exige uma resposta válida (`sim`, `não` ou `nao`) antes de continuar ou encerrar; entradas inválidas são solicitadas novamente.
 - Impede nomes e descrições vazios ou formados apenas por espaços, solicitando novamente.
-- Valida as prioridades `baixa`, `média`, `media` e `alta`, desconsiderando maiúsculas e espaços nas extremidades.
+- Aceita as prioridades `baixa`, `média`, `media` e `alta`, desconsiderando maiúsculas e espaços nas extremidades.
+- Padroniza a prioridade `media` para `média` antes de exibir o resumo do chamado.
 
-**Limitações conhecidas:** os chamados existem apenas durante a execução e não há histórico nem banco de dados. A numeração recomeça em 1 ao reiniciar o programa. Após uma resposta válida, `não` ou `nao` encerram a execução. As variantes `media` e `média` são aceitas, mas ainda não são padronizadas na saída.
+**Limitações conhecidas:** os chamados existem apenas durante a execução e não há histórico nem banco de dados. A numeração recomeça em 1 ao reiniciar o programa. Após uma resposta válida, `não` ou `nao` encerram a execução. A prioridade é exibida de forma padronizada, mas ainda não existe armazenamento permanente dos chamados.
 
 ## Como executar
 
@@ -56,7 +57,7 @@ Prioridade: alta
 Deseja registrar outro chamado? (sim/não): sim
 Nome do solicitante: Ana
 Descreva o problema: Internet sem conexão
-Prioridade (baixa, média ou alta): Média
+Prioridade (baixa, média ou alta): MEDIA
 
 === CHAMADO REGISTRADO ===
 Número do chamado: 2
@@ -75,10 +76,11 @@ NexusDesk encerrado.
 - [Issue #2 — Registrar múltiplos chamados com identificadores sequenciais](https://github.com/devgw177/NexusDesk/issues/2): concluída na versão 0.2.
 - [Issue #3 — Validar dados dos chamados e opções de prioridade](https://github.com/devgw177/NexusDesk/issues/3): concluída na versão 0.3.
 - **Versão 0.3.1:** validação da resposta de continuação (`sim`, `não` ou `nao`), com nova tentativa para entradas inválidas.
+- **Versão 0.3.2:** padronização da prioridade `media` para `média` antes da apresentação do chamado.
 
 ## Próximos passos planejados
 
-- Padronizar prioridades aceitas e as mensagens exibidas no terminal.
+- Padronizar as mensagens exibidas no terminal e melhorar o acabamento do código.
 - Permitir consultar chamados registrados.
 - Persistir os registros em arquivo ou banco de dados.
 - Criar testes automatizados.
