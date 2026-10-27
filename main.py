@@ -1,8 +1,6 @@
 # NexusDesk - Sistema de gerenciamento de chamados de TI
-# Versão 0.3 - Validação de dados dos chamados
+# Versão 0.3.1 - Validação de dados dos chamados
 
-
-# NexusDesk - Sistema de gerenciamento de chamados
 
 print("=== NEXUSDESK | SUPORTE DE TI ===")
 
@@ -46,5 +44,11 @@ while continuar == "sim":
 
     # Pergunta se deseja continuar
     continuar = input("\nDeseja registrar outro chamado? (sim/não): ").strip().lower()
+
+    while continuar not in("sim", "não", "nao"):
+        print("resposta invalida")
+        continuar = input("deseja continuar? (sim ou não):  ").strip().lower()
+    
+    
 
 print("\nNexusDesk encerrado.")
