@@ -1,11 +1,12 @@
 # NexusDesk - Sistema de gerenciamento de chamados de TI
-# Versão 0.3.2 - Validação de dados dos chamados
+# Versão 0.4.0 - Validação de dados dos chamados
 
 
 print("=== NEXUSDESK | SUPORTE DE TI ===")
 
 contador = 1
 continuar = "sim"
+chamados = []
 
 while continuar == "sim":
 
@@ -14,7 +15,7 @@ while continuar == "sim":
 
     # validação do nome 
     while nome == "":
-        print("Ero, nome é obrigatorio")
+        print("Erro, nome é obrigatorio")
         nome = input("digite seu nome novamente: ").strip()
 
     problema = input("Descreva o problema: ").strip()
@@ -33,12 +34,20 @@ while continuar == "sim":
     if prioridade == "media":
         prioridade = "média"
 
+    chamado = {"numero": contador,
+                "nome": nome, 
+                "problema": problema, 
+                "prioridade": prioridade}
+    
+
     # Saída de dados
     print("\n=== CHAMADO REGISTRADO ===")
     print("Número do chamado:", contador)
     print("Solicitante:", nome)
     print("Problema:", problema)
     print("Prioridade:", prioridade)
+
+    chamados.append(chamado)
 
     # Atualiza o contador
     contador = contador + 1
@@ -49,5 +58,6 @@ while continuar == "sim":
     while continuar not in("sim", "não", "nao"):
         print("Erro, resposta inválida")
         continuar = input("deseja continuar? (sim ou não):  ").strip().lower()
+
     
 print("\nNexusDesk encerrado.")
