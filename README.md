@@ -4,7 +4,7 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 
 ## Status
 
-**Versão 0.4.0 — cadastro e validação de múltiplos chamados com armazenamento temporário em uma lista de dicionários durante a execução.**
+**Versão 0.4.1 — cadastro e validação de múltiplos chamados, armazenamento temporário em lista de dicionários e exibição automática do histórico ao finalizar os cadastros.**
 
 ## Funcionalidades implementadas
 
@@ -20,8 +20,9 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 - Padroniza a prioridade `media` para `média` antes de exibir o resumo do chamado.
 - Organiza cada chamado em um dicionário com `numero`, `nome`, `problema` e `prioridade`.
 - Armazena esses dicionários em uma lista `chamados` enquanto o programa está em execução.
+- Exibe automaticamente ao final dos cadastros todos os chamados da execução, percorrendo a lista com `for`.
 
-**Limitações conhecidas:** os chamados ficam apenas na memória durante a execução; não há persistência em arquivo ou banco de dados. O programa ainda não oferece uma opção de consultar chamados já cadastrados, embora seus dados estejam organizados internamente na lista. A numeração recomeça em 1 a cada nova execução. As respostas `não` e `nao` encerram o programa.
+**Limitações conhecidas:** os chamados ficam apenas na memória durante a execução; não há persistência em arquivo ou banco de dados. O programa exibe o histórico completo ao terminar os cadastros, mas ainda não oferece pesquisa interativa de um chamado específico pelo número. A numeração recomeça em 1 a cada nova execução. As respostas `não` e `nao` encerram o programa.
 
 ## Como executar
 
@@ -68,6 +69,16 @@ Problema: Internet sem conexão
 Prioridade: média
 
 Deseja registrar outro chamado? (sim/não): não
+=== CHAMADOS CADASTRADOS ===
+Número: 1
+Nome: Gabriel
+Problema: Computador não liga
+Prioridade: alta
+
+Número: 2
+Nome: Ana
+Problema: Internet sem conexão
+Prioridade: média
 
 NexusDesk encerrado.
 ```
@@ -80,11 +91,12 @@ NexusDesk encerrado.
 - **Versão 0.3.1:** validação da resposta de continuação (`sim`, `não` ou `nao`), com nova tentativa para entradas inválidas.
 - **Versão 0.3.2:** padronização da prioridade `media` para `média` antes da apresentação do chamado.
 - **Versão 0.4.0:** criação de um dicionário por chamado e armazenamento dos registros em uma lista durante a execução, sem consulta interativa ou persistência permanente.
+- **Versão 0.4.1:** exibição do histórico de chamados ao terminar os cadastros, utilizando um `for` para percorrer os dicionários.
 
 ## Próximos passos planejados
 
 - Padronizar as mensagens exibidas no terminal e melhorar o acabamento do código.
-- Permitir consultar chamados registrados.
+- Permitir pesquisar um chamado específico pelo número (a exibição do histórico completo já está implementada).
 - Persistir os registros em arquivo ou banco de dados.
 - Criar testes automatizados.
 - Estruturar uma API conforme a evolução do projeto.
