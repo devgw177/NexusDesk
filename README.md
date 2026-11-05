@@ -4,7 +4,7 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 
 ## Status
 
-**Versão 0.3.2 — cadastro de múltiplos chamados com validação de dados, validação da continuação e padronização de prioridade.**
+**Versão 0.4.0 — cadastro e validação de múltiplos chamados com armazenamento temporário em uma lista de dicionários durante a execução.**
 
 ## Funcionalidades implementadas
 
@@ -18,8 +18,10 @@ Sistema de gerenciamento de chamados de suporte técnico, desenvolvido em Python
 - Impede nomes e descrições vazios ou formados apenas por espaços, solicitando novamente.
 - Aceita as prioridades `baixa`, `média`, `media` e `alta`, desconsiderando maiúsculas e espaços nas extremidades.
 - Padroniza a prioridade `media` para `média` antes de exibir o resumo do chamado.
+- Organiza cada chamado em um dicionário com `numero`, `nome`, `problema` e `prioridade`.
+- Armazena esses dicionários em uma lista `chamados` enquanto o programa está em execução.
 
-**Limitações conhecidas:** os chamados existem apenas durante a execução e não há histórico nem banco de dados. A numeração recomeça em 1 ao reiniciar o programa. Após uma resposta válida, `não` ou `nao` encerram a execução. A prioridade é exibida de forma padronizada, mas ainda não existe armazenamento permanente dos chamados.
+**Limitações conhecidas:** os chamados ficam apenas na memória durante a execução; não há persistência em arquivo ou banco de dados. O programa ainda não oferece uma opção de consultar chamados já cadastrados, embora seus dados estejam organizados internamente na lista. A numeração recomeça em 1 a cada nova execução. As respostas `não` e `nao` encerram o programa.
 
 ## Como executar
 
@@ -77,6 +79,7 @@ NexusDesk encerrado.
 - [Issue #3 — Validar dados dos chamados e opções de prioridade](https://github.com/devgw177/NexusDesk/issues/3): concluída na versão 0.3.
 - **Versão 0.3.1:** validação da resposta de continuação (`sim`, `não` ou `nao`), com nova tentativa para entradas inválidas.
 - **Versão 0.3.2:** padronização da prioridade `media` para `média` antes da apresentação do chamado.
+- **Versão 0.4.0:** criação de um dicionário por chamado e armazenamento dos registros em uma lista durante a execução, sem consulta interativa ou persistência permanente.
 
 ## Próximos passos planejados
 
